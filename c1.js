@@ -2,8 +2,6 @@ function sum() {
     let angka = 0
     for (let i = 0; i < arguments.length; i++) {
         angka = angka + arguments[i]
-
-
     }
     console.log(angka)
 
