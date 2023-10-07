@@ -1,16 +1,27 @@
 function romawi(n) {
-    if (n === 4) {
-        return "IV"
-    } else if (n === 9) {
-        return "IX"
-    } else if (n === 13) {
-        return "XIII"
-    } else if (n === 1453) {
-        return "MCDLII"
-    } else if (n === 1646) {
-        return "MDCXLVI"
+    let str = ""
+    var roman = {
+        M: 1000,
+        CM: 900,
+        D: 500,
+        CD: 400,
+        C: 100,
+        XC: 90,
+        L: 50,
+        XL: 40,
+        X: 10,
+        IX: 9,
+        V: 5,
+        IV: 4,
+        I: 1
+    };
+    for (let romawi in roman) {
+        while (n >= roman[romawi]) {
+            str += romawi
+            n -= roman[romawi]
+        }
     }
-    console.log(n)
+    return str
 }
 console.log("Script Testing untuk Konversi Romawi\n")
 console.log("input | expected | result")
