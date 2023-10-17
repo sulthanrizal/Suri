@@ -4,11 +4,10 @@ if (process.argv[2]) {
     const data = fs.readFileSync(`${process.argv[2]}`, "utf-8")
     const quest = JSON.parse(data)
     const readline = require("node:readline")
-    const { skip } = require("node:test")
     const readl = readline.createInterface({
         input: process.stdin,
         output: process.stdout,
-        prompt: "Jawaban :"
+        prompt: "Jawaban : "
     })
     console.log("Selamat datang di permainan Tebak-tebakan. Kamu akan diberikan pertanyaan dari file ini 'data.json'. Untuk bermain, jawablah dengan jawaban sesuai",
         "Gunakan 'skip' untuk menangguhkan pertanyaannya , dan di akhir pertanyaan akan di tanya lagi.")
