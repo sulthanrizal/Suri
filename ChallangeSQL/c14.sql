@@ -35,17 +35,17 @@ create table matakuliah(
 insert into matakuliah(id_Matkul,nama_Matkul,sks)values
 ("M01","Rekayasa Perangkat Lunak","20"),
 ("M02","Algoritma dan Pemograman","19"),
-("M03","Basis Data","19")
+("M03","Basis Data","19");
 
 select * from matakuliah;
 
 
 create table dosen(
-    id_dosen character(3) primary key not null,
+    nip character(3) primary key not null,
     nama varchar(100) not null
 );
 
-insert into dosen(id_dosen,nama) values
+insert into dosen(nip,nama) values
 ("D01","Andri"),
 ("D02","Alvian"),
 ("D03","Rizky");
@@ -57,14 +57,14 @@ create table hasilBelajar(
     id_hasil integer primary key in autoincrement,
     nim character(3) not null,
     id_Matkul character(3) not null,
-    id_dosen character(3) not null ,
+    nip character(3) not null ,
     nilai varchar(5) not null ,
     foreign key (nim) references mahasiswa(nim),
     foreign key (id_Matkul) references matakuliah(id_Matkul),
-    foreign key (id_dosen) references dosen(id_dosen)
+    foreign key (nip) references dosen(nip)
 );
 
-insert into hasilBelajar(nim,id_Matkul,id_dosen,nilai)values
+insert into hasilBelajar(nim,id_Matkul,nip,nilai)values
 ("N01","M01","D01","A+"),
 ("N01","M02","D02","B+"),
 ("N02","M01","D01","A"),
@@ -73,4 +73,6 @@ insert into hasilBelajar(nim,id_Matkul,id_dosen,nilai)values
 ("N03","M03","D03","A");
 
 select * from HasilBelajar;
+
+
 
