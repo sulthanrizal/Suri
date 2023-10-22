@@ -16,7 +16,7 @@ select * from mahasiswa;
 
 create table jurusan(
     id_jurusan varchar(10) primary key not null,
-    nama_jurusan varchar(100) not null
+    nama_jurusan varchar(100) not null;
 );
 
 insert into jurusan(id_jurusan,nama_jurusan) values
@@ -29,7 +29,7 @@ select * from jurusan ;
 create table matakuliah(
     id_Matkul character(3) primary key not null ,
     nama_Matkul varchar(100) not null ,
-    sks integer (5) not null
+    sks integer (5) not null;
 );
 
 insert into matakuliah(id_Matkul,nama_Matkul,sks)values
@@ -42,7 +42,10 @@ select * from matakuliah;
 
 create table dosen(
     nip character(3) primary key not null,
-    nama varchar(100) not null
+    nama varchar(100) not null,
+    id_jurusan varchar(100) not null ,
+    foreign key (id_jurusan)references jurusan(id_jurusan);
+
 );
 
 insert into dosen(nip,nama) values
@@ -61,7 +64,7 @@ create table hasilBelajar(
     nilai varchar(5) not null ,
     foreign key (nim) references mahasiswa(nim),
     foreign key (id_Matkul) references matakuliah(id_Matkul),
-    foreign key (nip) references dosen(nip)
+    foreign key (nip) references dosen(nip);
 );
 
 insert into hasilBelajar(nim,id_Matkul,nip,nilai)values
