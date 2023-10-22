@@ -49,9 +49,9 @@ create table dosen(
 );
 
 insert into dosen(nip,nama) values
-("D01","Andri"),
-("D02","Alvian"),
-("D03","Rizky");
+("D01","Andri","A1"),
+("D02","Alvian","A2"),
+("D03","Rizky","A3");
 
 select * from dosen;
 
