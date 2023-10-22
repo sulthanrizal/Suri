@@ -48,7 +48,7 @@ create table dosen(
 
 );
 
-insert into dosen(nip,nama) values
+insert into dosen(nip,nama,id_jurusan) values
 ("D01","Andri","A1"),
 ("D02","Alvian","A2"),
 ("D03","Rizky","A3");
