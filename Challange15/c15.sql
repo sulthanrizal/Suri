@@ -130,7 +130,7 @@ select distinct nim,(select nama from Mahasiswa where mahasiswa.nim=Kontrak.nim)
 select nim(select nama from Mahasiswa where mahasiswa.nim = Kontrak.nim)as nama,sum((select sks from MataKuliah where MataKuliah.id_Matkul=Kontrak.id_Matkul))as sks from Kontrak group by nim having sks<10;
 
 -- Soal 5 --
-select nim, (select nama from Mahasiswa where Mahasiswa.nim=Kontrak.nim) as nama from Kontrak where nama_Matkul="Data Mining";
+select * from MataKuliah where nama_Matkul like "data mining%";
 
 -- soal 6 --
 select *,(select count(distinct nim)from Kontrak where Kontrak.nip=Dosen.nip)as jumlah_Mahasiswa from Dosen;
