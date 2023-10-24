@@ -59,7 +59,7 @@ insert into MataKuliah(id_Matkul,nama_Matkul,sks)values
 ("M04","Kalkulus","3"),
 ("M05","Pengantar Informatika","4"),
 ("M06","Algoritma","4"),
-("M07","Termodika","2"),
+("M07","Data Mining","2"),
 ("M08","Sastra Rusia","3"),
 ("M09","Ilmu Komunikasi","3"),
 ("M010","Rekayasa Perangkat Lunak","2"),
@@ -130,7 +130,7 @@ select distinct nim,(select nama from Mahasiswa where mahasiswa.nim=Kontrak.nim)
 select nim(select nama from Mahasiswa where mahasiswa.nim = Kontrak.nim)as nama,sum((select sks from MataKuliah where MataKuliah.id_Matkul=Kontrak.id_Matkul))as sks from Kontrak group by nim having sks<10;
 
 -- Soal 5 --
-select nim, (select nama from Mahasiswa where Mahasiswa.nim=Kontrak.nim) as nama from Kontrak where id_Matkul="M07";
+select nim, (select nama from Mahasiswa where Mahasiswa.nim=Kontrak.nim) as nama from Kontrak where nama_Matkul="Data Mining";
 
 -- soal 6 --
 select *,(select count(distinct nim)from Kontrak where Kontrak.nip=Dosen.nip)as jumlah_Mahasiswa from Dosen;
