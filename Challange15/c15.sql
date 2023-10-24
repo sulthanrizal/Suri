@@ -117,28 +117,28 @@ UPDATE mahasiswa SET Lahir="2003-02-28" WHERE nim="N06";
 .header on
 .mode column
 
--- Soal 1 
+-- Soal 1 --
 select *,(select jurusan from jurusan where jurusan.id_jurusan=Mahasiswa.id_jurusan)as jurusan from Mahasiswa;
 
--- Soal 2 
+-- Soal 2 --
 select *,date("now")-date(lahir)as umur from Mahasiswa where umur<20;
 
--- Soal 3 
+-- Soal 3 --
 select distinct nim,(select nama from Mahasiswa where mahasiswa.nim=Kontrak.nim)as nama from Kontrak where nilai<="B";
 
--- Soal 4
+-- Soal 4 --
 select nim(select nama from Mahasiswa where mahasiswa.nim = Kontrak.nim)as nama,sum((select sks from MataKuliah where MataKuliah.id_Matkul=Kontrak.id_Matkul))as sks from Kontrak group by nim having sks<10;
 
--- Soal 5 
+-- Soal 5 --
 select nim, (select nama from Mahasiswa where Mahasiswa.nim=Kontrak.nim) as nama from Kontrak where id_Matkul="M07";
 
--- soal 6 
+-- soal 6 --
 select *,(select count(distinct nim)from Kontrak where Kontrak.nip=Dosen.nip)as jumlah_Mahasiswa from Dosen;
 
--- soal 7
+-- soal 7 --
 select *,date("now")-date(lahir)as umur from Mahasiswa order by umur;
 
--- soal 8
+-- soal 8 --
 select * from kontrak join Mahasiswa on Kontrak.nim=Mahasiswa.nim join jurusan on Kontrak.id_jurusan=jurusan.id_jurusan join Dosen on Kontrak.nip=Dosen.nip where nilai>="D";
 
 
