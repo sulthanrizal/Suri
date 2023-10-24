@@ -3,7 +3,7 @@ create table Jurusan(
     jurusan varchar(100)not null
 );
 insert into  jurusan(id_jurusan,jurusan)values
--- ("J01","Sistem Informatika"),
+("J01","Sistem Informatika"),
 ("J02","Teknik Informatika"),
 ("J03","Teknik Elektro");
 
