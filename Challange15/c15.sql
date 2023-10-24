@@ -26,12 +26,12 @@ insert into Mahasiswa(nim,nama,alamat,id_jurusan)values
 
 create table Dosen(
     nip varchar(5) primary key not null,
-    nama varchar(100)not null,
+    nama_dosen varchar(100)not null,
     id_jurusan varchar(5)not null,
     foreign key (id_jurusan)references jurusan(id_jurusan);
 );
 
-insert into Dosen(nip,nama,id_jurusan)values
+insert into Dosen(nip,nama_dosen,id_jurusan)values
 ("D01","Oki Ramdhani","J01"),
 ("D02","Suci Fadillah","J01"),
 ("D03","Nurul Utami","J01"),
@@ -117,8 +117,28 @@ UPDATE mahasiswa SET Lahir="2003-02-28" WHERE nim="N06";
 .header on
 .mode column
 
--- Tugas 1 (left join)
-select *,(select nama_jurusan from jurusan where jurusan.id_jurusan=Mahasiswa.id_jurusan)as nama_jurusan from Mahasiswa;
+-- Soal 1 
+select *,(select jurusan from jurusan where jurusan.id_jurusan=Mahasiswa.id_jurusan)as jurusan from Mahasiswa;
 
--- Tugas 2 (coba paket str)
-select*,date(now)-date(lahir)as umur from Mahasiswa where umur<20;
+-- Soal 2 
+select *,date("now")-date(lahir)as umur from Mahasiswa where umur<20;
+
+-- Soal 3 
+select distinct nim,(select nama from Mahasiswa where mahasiswa.nim=Kontrak.nim)as nama from Kontrak where nilai<="B";
+
+-- Soal 4
+select nim(select nama from Mahasiswa where mahasiswa.nim = Kontrak.nim)as nama,sum((select sks from MataKuliah where MataKuliah.id_Matkul=Kontrak.id_Matkul))as sks from Kontrak group by nim having sks<10;
+
+-- Soal 5 
+select nim, (select nama from Mahasiswa where Mahasiswa.nim=Kontrak.nim) as nama from Kontrak where id_Matkul="M07";
+
+-- soal 6 
+select *,(select count(distinct nim)from Kontrak where Kontrak.nip=Dosen.nip)as jumlah_Mahasiswa from Dosen;
+
+-- soal 7
+select *,date("now")-date(lahir)as umur from Mahasiswa order by umur;
+
+-- soal 8
+select * from kontrak join Mahasiswa on Kontrak.nim=Mahasiswa.nim join jurusan on Kontrak.id_jurusan=jurusan.id_jurusan join Dosen on Kontrak.nip=Dosen.nip where nilai>="D";
+
+
