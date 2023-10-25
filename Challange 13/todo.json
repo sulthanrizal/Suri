@@ -1,30 +1,8 @@
 [
     {
         "id": 1,
-        "content": "Suri",
-        "complete": true,
-        "tag": "",
-        "tags": []
-    },
-    {
-        "id": 2,
-        "content": "Andri",
-        "complete": true,
-        "tag": "",
-        "tags": []
-    },
-    {
-        "id": 3,
-        "content": "Alvian",
-        "complete": true,
-        "tag": "",
-        "tags": []
-    },
-    {
-        "id": 4,
-        "content": "Rizky",
-        "complete": true,
-        "tag": "",
-        "tags": []
+        "content": "Makan Siang",
+        "complete": false,
+        "tag": ""
     }
 ]

@@ -3,6 +3,8 @@ const data = fs.readFileSync("todo.json", "utf-8")
 const quest = JSON.parse(data)
 
 let counter = quest.length + 1
+let count = process.argv[3]
+let input = count - 1
 
 if (!process.argv[2] || process.argv[2] === "help") {
     console.log(
@@ -26,7 +28,12 @@ else if (process.argv[2] === "list") {
             `${quest[i].id}. [${quest[i].complete ? "x" : " "}] ${quest[i].content}.`
         );
     }
-} else if (process.argv[2] === "add") {
+} else if (process.argv[2] === "task") {
+    for (let x in quest[input]) {
+        console.log(`${x}: ${quest[count - 1][x]}`)
+    }
+}
+else if (process.argv[2] === "add") {
     quest.push({
         id: counter,
         content: process.argv.slice(3).join(" "),
@@ -36,10 +43,9 @@ else if (process.argv[2] === "list") {
     fs.writeFileSync("todo.json", JSON.stringify(quest), "utf-8");
     console.log(`${process.argv.slice(3).join(" ")} status telah ditambahkan`);
 } else if (process.argv[2] === "delete") {
-    quest.splice(process.argv[3 - 1], 1);
-    console.log(
-        `${quest[process.argv[3] - 1].content} telah dihapus dari daftar`
-    );
+    console.log(`${quest[input].content} telah di hapus dari daftar`)
+    quest.splice(input, 1)
+    for (let i = 0; i < quest.length; i++) quest[i].id = i + 1;
     fs.writeFileSync("todo.json", JSON.stringify(quest), "utf-8");
 } else if (process.argv[2] === "complete") {
     quest[process.argv[3] - 1].complete = true;
@@ -90,15 +96,15 @@ else if (process.argv[2] === "list") {
         }
     }
 } else if (process.argv[2] === "tag") {
-    quest[process.argv[3] - 1].tags = process.argv.slice(4);
+    quest[process.argv[3] - 1].tag = process.argv.slice(4);
     fs.writeFileSync("todo.json", JSON.stringify(quest), "utf-8");
     console.log(
-        `${quest[process.argv[3] - 1].tags} telah ditambahkan ke ${quest[process.argv[3] - 1].content
+        `${quest[process.argv[3] - 1].tag} telah ditambahkan ke ${quest[process.argv[3] - 1].content
         } `
     );
 } else if (process.argv[2] === `filter:${process.argv[2].slice(7)}`) {
     for (let i = 0; i < quest.length; i++) {
-        if (quest[i].tags.includes(process.argv[2].slice(7))) {
+        if (quest[i].tag.includes(process.argv[2].slice(7))) {
             console.log(
                 `${quest[i].id}. [${quest[i].complete ? "x" : " "}] ${quest[i].content
                 }.`
