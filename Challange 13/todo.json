@@ -1,8 +1,37 @@
 [
     {
         "id": 1,
+        "content": "Sarapan",
+        "complete": false,
+        "tag": [
+            "bubur"
+        ]
+    },
+    {
+        "id": 2,
         "content": "Makan Siang",
         "complete": false,
-        "tag": ""
+        "tag": [
+            "Ayam",
+            "Bakar"
+        ]
+    },
+    {
+        "id": 3,
+        "content": "Makan Sore",
+        "complete": false,
+        "tag": []
+    },
+    {
+        "id": 4,
+        "content": "Makan Malam",
+        "complete": false,
+        "tag": []
+    },
+    {
+        "id": 5,
+        "content": "Tidur Pagi",
+        "complete": false,
+        "tag": []
     }
 ]
