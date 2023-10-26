@@ -23,40 +23,48 @@ if (!process.argv[2] || process.argv[2] === "help") {
     )
 }
 else if (process.argv[2] === "list") {
+    console.log("Jadwal Makan:")
     for (let i = 0; i < quest.length; i++) {
         console.log(
             `${quest[i].id}. [${quest[i].complete ? "x" : " "}] ${quest[i].content}.`
         );
     }
 } else if (process.argv[2] === "task") {
+    console.log("Jadwal Makan:")
     for (let x in quest[input]) {
         console.log(`${x}: ${quest[count - 1][x]}`)
     }
 }
 else if (process.argv[2] === "add") {
+    console.log("Jadwal Makan:")
     quest.push({
         id: counter,
         content: process.argv.slice(3).join(" "),
         complete: false,
-        tag: "",
+        tag: [],
     });
     fs.writeFileSync("todo.json", JSON.stringify(quest), "utf-8");
     console.log(`${process.argv.slice(3).join(" ")} status telah ditambahkan`);
 } else if (process.argv[2] === "delete") {
+    console.log("Jadwal Makan:")
     console.log(`${quest[input].content} telah di hapus dari daftar`)
     quest.splice(input, 1)
     for (let i = 0; i < quest.length; i++) quest[i].id = i + 1;
     fs.writeFileSync("todo.json", JSON.stringify(quest), "utf-8");
 } else if (process.argv[2] === "complete") {
+    console.log("Jadwal Makan:")
     quest[process.argv[3] - 1].complete = true;
     console.log(`${quest[process.argv[3] - 1].content} telah di complete`);
     fs.writeFileSync("todo.json", JSON.stringify(quest), "utf-8");
 } else if (process.argv[2] === "uncomplete") {
+    console.log("Jadwal Makan:")
     quest[process.argv[3] - 1].complete = false;
     console.log(`${quest[process.argv[3] - 1].content} telah dibatalkan`);
     fs.writeFileSync("todo.json", JSON.stringify(quest), "utf-8");
 } else if (process.argv[2] === "list:outstanding") {
+    console.log("Jadwal Makan:")
     if (process.argv[3] === "asc") {
+
         for (let i = 0; i < quest.length; i++) {
             if (quest[i].complete === false) {
                 console.log(
@@ -66,6 +74,7 @@ else if (process.argv[2] === "add") {
             }
         }
     } else if (process.argv[3] === "desc") {
+
         for (let i = quest.length - 1; i >= 0; i--) {
             if (quest[i].complete === false) {
                 console.log(
@@ -76,7 +85,9 @@ else if (process.argv[2] === "add") {
         }
     }
 } else if (process.argv[2] === "list:completed") {
+    console.log("Jadwal Makan:")
     if (process.argv[3] === "asc") {
+
         for (let i = 0; i < quest.length; i++) {
             if (quest[i].complete === true) {
                 console.log(
@@ -86,6 +97,7 @@ else if (process.argv[2] === "add") {
             }
         }
     } else if (process.argv[3] === "desc") {
+
         for (let i = quest.length - 1; i >= 0; i--) {
             if (quest[i].complete === true) {
                 console.log(
@@ -96,13 +108,19 @@ else if (process.argv[2] === "add") {
         }
     }
 } else if (process.argv[2] === "tag") {
-    quest[process.argv[3] - 1].tag = process.argv.slice(4);
+    console.log("Jadwal Makan:")
+    console.log(`"Tag ${process.argv.slice(4)}" telah ditambahkan ke dalam '${quest[quest.findIndex(x => x.id == count)].content} `);
+    const tags = process.argv.slice(4)
+    tags.forEach((tagging) => {
+        if (!quest[input].tag.includes(tagging)) {
+            quest[input].tag.push(tagging)
+        }
+    })
+
     fs.writeFileSync("todo.json", JSON.stringify(quest), "utf-8");
-    console.log(
-        `${quest[process.argv[3] - 1].tag} telah ditambahkan ke ${quest[process.argv[3] - 1].content
-        } `
-    );
+
 } else if (process.argv[2] === `filter:${process.argv[2].slice(7)}`) {
+    console.log("Jadwal Makan:")
     for (let i = 0; i < quest.length; i++) {
         if (quest[i].tag.includes(process.argv[2].slice(7))) {
             console.log(
