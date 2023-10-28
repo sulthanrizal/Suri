@@ -44,10 +44,10 @@ class Agya extends Car {
 
 
 }
-class Rush extends Car {
+class Avanza extends Car {
     constructor(year, sn) {
         super(year, sn)
-        this.varian = "Rush"
+        this.varian = "Avanza"
         this.door = 5
         this.seat = 5
         this.brand = "Bridgeston "
@@ -65,7 +65,7 @@ class CarFactory {
         for (let i = 0; i < Math.floor(Math.random() * 6); i++) {
             this.cars.push(new Agya(year, Car.modeAngka()))
         } for (let i = 0; i < Math.floor(Math.random() * 6); i++) {
-            this.cars.push(new Rush(year, Car.modeAngka()))
+            this.cars.push(new Avanza(year, Car.modeAngka()))
         } return this.cars
 
     }
