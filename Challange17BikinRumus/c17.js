@@ -1,4 +1,3 @@
-
 export const PI = 22 / 7
 
 export default class Calculator {
