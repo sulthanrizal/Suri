@@ -1,3 +1,16 @@
+create table jurusan(
+    id_jurusan varchar(10) primary key not null,
+    nama_jurusan varchar(100) not null;
+);
+
+insert into jurusan(id_jurusan,nama_jurusan) values
+("A1","Teknik Informatik"),
+("A2","Teknik Elektro"),
+("A3","Sistem Informasi");
+
+select * from jurusan ;
+
+
 create table mahasiswa(
     nim character(3) primary key not null,
     nama varchar(100) not null,
@@ -12,19 +25,6 @@ insert into mahasiswa(nim,nama,alamat,id_jurusan) values
 ("N03","Adifahmad","Bekasi","A3");
 
 select * from mahasiswa;
-
-
-create table jurusan(
-    id_jurusan varchar(10) primary key not null,
-    nama_jurusan varchar(100) not null;
-);
-
-insert into jurusan(id_jurusan,nama_jurusan) values
-("A1","Teknik Informatik"),
-("A2","Teknik Elektro"),
-("A3","Sistem Informasi");
-
-select * from jurusan ;
 
 create table matakuliah(
     id_Matkul character(3) primary key not null ,
