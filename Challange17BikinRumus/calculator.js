@@ -4,19 +4,19 @@ export default class Calculator {
     constructor(rumus) {
         this.rumus = rumus || 1
     }
-    penambahan(value) {
+    add(value) {
         this.rumus += value
         return this
     }
-    pengurangan(value) {
+    substract(value) {
         this.rumus -= value
         return this
     }
-    pembagian(value) {
+    divide(value) {
         this.rumus /= value
         return this
     }
-    perkalian(value) {
+    multiply(value) {
         this.rumus *= value
         return this
     }
@@ -32,7 +32,7 @@ export default class Calculator {
         this.rumus = Math.sqrt(this.rumus)
         return this
     }
-    hasil() {
+    result() {
         console.log(this.rumus)
         return this
     }
