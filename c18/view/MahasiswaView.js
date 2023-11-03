@@ -5,18 +5,17 @@ import Table from "cli-table"
 
 export function showJurusan(data = []) {
     var table = new Table({
-        head: ['Kode Jurusan', "Nama Jurusan"],
-        colWidths: [15, 30]
+        head: ["NIM", "Nama", "Tanggal Lahir", "alamat", "Kode Jurusan", "Nama Jurusan"],
+        colWidths: [15, 25, 15, 15, 15, 30]
     })
 
     data.forEach((item) => {
-        table.push([item.kodejurusan, item.namajurusan])
+        table.push([item.nim, item.nama, item.lahir, item.alamat, item.kodejurusan, item.namajurusan])
     })
     console.log(table.toString())
 
 }
 
-showJurusan()
 
 export function submenu() {
     lines()
@@ -30,17 +29,17 @@ export function submenu() {
         `)
     lines()
 }
-submenu()
 
 
 
-export function showSearch(data) {
+export function search(data) {
     lines()
     console.log(`
-    Detail Jurusan dengan code : "${data.kodejurusan}"
+    Detail Jurusan dengan code : "${data.nim}"
+    NIM          : ${data.nim}
+    Nama         : ${data.nama}
     Kode Jurusan : ${data.kodejurusan}
     Nama Jurusan : ${data.namajurusan}
     `)
 }
-showSearch({})
 

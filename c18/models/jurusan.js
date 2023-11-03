@@ -1,4 +1,4 @@
-import { db } from "./connect"
+import { db } from "./connect.js"
 
 export default class Jurusan {
     constructor(obj) {
@@ -10,6 +10,22 @@ export default class Jurusan {
             if (err) {
                 console.log(err)
             }
+        })
+    }
+
+    static find(next) {
+        db.all("SELECT * FROM Jurusan ", (err, data) => {
+            if (err) console.log(data)
+            next(data)
+        })
+    }
+
+    static look(kodejurusan) {
+        return new Promise(function (resolve, reject) {
+            db.get("SELECT * FROM Jurusan WHERE kodejurusan = ?", [kodejurusan], (err, data) => {
+                if (err) reject(err)
+                else resolve(data)
+            })
         })
     }
 
