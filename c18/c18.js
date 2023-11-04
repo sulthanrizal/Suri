@@ -1,5 +1,6 @@
+import DosenController from "./controllers/DosenController.js"
 import JurusanController from "./controllers/JurusanController.js"
-// import MahasiswaController from "./controllers/MahasiswaController.js"
+import MahasiswaController from "./controllers/MahasiswaController.js"
 // import MataKuliahController from "./controllers/MataKuliahController"
 import { rl } from "./models/connect.js"
 
@@ -27,14 +28,18 @@ export function home() {
 
     rl.question("Masukan salah satu nomor dari opsi diatas : ", (index) => {
         switch (index) {
-            // case "1":
-            //     MahasiswaController.menu()
-            //     break;
+            case "1":
+                MahasiswaController.menu()
+                break;
             case "2":
                 JurusanController.menu()
                 break;
+            case "3":
+                DosenController.menu()
+                break;
             default:
                 console.log(`Nomor yang anda masukan tidak sesuai , silahkan coba lagi`)
+                break;
         }
     })
 }

@@ -58,7 +58,11 @@ export default class JurusanController {
             rl.question("Kode Jurusan : ", async (kodejurusan) => {
                 rl.question("Nama Jurusan : ", async (namajuruan) => {
                     if (await Jurusan.look(kodejurusan)) {
-                        console.log("Kode Jurusan telah tersedia di database , silahkan coba lagi.")
+                        console.log("Kode Jurusan sudah terdaftar di database , silahkan coba lagi.")
+                        JurusanController.menu()
+                    } else {
+                        Jurusan.create(kodejurusan, namajuruan)
+                        console.log(`Jurusan telah ditambahkan di database`)
                         JurusanController.menu()
                     }
                 })

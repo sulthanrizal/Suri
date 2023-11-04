@@ -17,6 +17,7 @@ export function showDosen(data = []) {
 }
 
 
+
 export function submenu() {
     lines()
     console.log(`
@@ -29,15 +30,17 @@ export function submenu() {
         `)
     lines()
 }
+submenu()
 
 
-
-export function search(data) {
+export function showSearch(data) {
     lines()
     console.log(`
-    Detail Jurusan dengan code : "${data.nip}"
+    Detail Dosen dengan kode : "${data.nip}" :
     NIP          : ${data.nip}
     Nama Dosen   : ${data.namadosen}
     `)
 }
+
+
 

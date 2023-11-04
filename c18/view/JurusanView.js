@@ -15,8 +15,10 @@ export function showJurusan(data = []) {
     console.log(table.toString())
 
 }
-
 showJurusan()
+
+
+
 
 export function submenu() {
     lines()
@@ -37,7 +39,7 @@ submenu()
 export function showSearch(data) {
     lines()
     console.log(`
-    Detail Jurusan dengan code : "${data.kodejurusan}"
+    Detail Jurusan dengan code : "${data.kodejurusan}" :
     Kode Jurusan : ${data.kodejurusan}
     Nama Jurusan : ${data.namajurusan}
     `)

@@ -1,9 +1,9 @@
 import { db } from "./connect.js"
 
-export default class Jurusan {
+export default class Dosen {
     constructor(obj) {
-        this.kodejurusan = obj.kodejurusan
-        this.namajurusan = obj.namajurusan
+        this.nip = obj.nip
+        this.namadosen = obj.namadosen
     }
     save() {
         db.run("INSERT INTO Jurusan VALUES (?,?)", [this.kodejurusan, this.namajurusan], (err) => {
@@ -14,19 +14,18 @@ export default class Jurusan {
     }
 
     static find(next) {
-        db.all("SELECT * FROM Jurusan ", (err, data) => {
+        db.all("SELECT * FROM Dosen ", (err, data) => {
             if (err) console.log(data)
             next(data)
         })
     }
 
-    static look(kodejurusan) {
+    static look(nip) {
         return new Promise(function (resolve, reject) {
-            db.get("SELECT * FROM Jurusan WHERE kodejurusan = ?", [kodejurusan], (err, data) => {
+            db.get("SELECT * FROM Dosen WHERE nip = ? ", [nip], (err, data) => {
                 if (err) {
                     reject(err)
-                }
-                else {
+                } else {
                     resolve(data)
                 }
             })
@@ -34,14 +33,14 @@ export default class Jurusan {
     }
 
 
-    static create(kodejurusan, nama) {
-        const databaru = new Jurusan({ kodejurusan: kodejurusan, namajurusan: nama })
+    static create(nip, nama) {
+        const databaru = new Dosen({ nip: nip, namadosen: nama })
         return databaru.save()
     }
 
-    static delete(kodejurusan) {
+    static delete(nip) {
         return new Promise(function (resolve, reject) {
-            db.run("DELETE FROM Jurusan WHERE kodejurusan = ? ", [kodejurusan], (err) => {
+            db.run("DELETE FROM Jurusan WHERE kodejurusan = ? ", [nip], (err) => {
                 if (err) {
                     reject(err)
                 } else {
