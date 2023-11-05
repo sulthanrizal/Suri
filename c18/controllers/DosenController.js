@@ -54,17 +54,17 @@ export default class DosenController {
         })
     }
     static add() {
-        console.log(`Lengkapi data dibawah ini : `)
+        console.log(`Lengkapi data di bawah ini :`)
         Dosen.find(function (data) {
             showDosen(data)
-            rl.question(`NIP Dosen :`, async (nip) => {
+            rl.question(`NIP Dosen : `, async (nip) => {
                 rl.question(`Nama Dosen : `, async (namadosen) => {
                     if (await Dosen.look(nip)) {
-                        console.log(`NIP sudah terdaftar , silahkan coba lagi.`)
-                        DosenController.menu()
+                        console.log(`NIP telah tersedia di database, silahkan coba lagi.`)
+                        Dosen.menu()
                     } else {
-                        DosenController.menu(nip, namadosen)
-                        console.log(`Dosen telah di tambahkan di database`)
+                        Dosen.create(nip, namadosen);
+                        console.log(`Dosen telah ditambahkan ke database`)
                         DosenController.menu()
                     }
                 })
@@ -73,7 +73,7 @@ export default class DosenController {
     }
     static delete() {
         rl.question(`Masukan NIP Dosen : `, async (nip) => {
-            const dosen = await Dosen.look(nip, namadosen)
+            const dosen = await Dosen.look(nip)
             if (nip) {
                 Dosen.delete(nip).then(() => {
                     console.log(`Data Dosen ${nip} telah dihapus`)

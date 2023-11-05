@@ -6,10 +6,10 @@ export default class Dosen {
         this.namadosen = obj.namadosen
     }
     save() {
-        db.run("INSERT INTO Jurusan VALUES (?,?)", [this.kodejurusan, this.namajurusan], (err) => {
-            if (err) {
+        db.run("INSERT INTO Dosen VALUES (?,?)", [this.nip, this.namadosen], (err) => {
+            if (err)
                 console.log(err)
-            }
+
         })
     }
 
@@ -40,7 +40,7 @@ export default class Dosen {
 
     static delete(nip) {
         return new Promise(function (resolve, reject) {
-            db.run("DELETE FROM Jurusan WHERE kodejurusan = ? ", [nip], (err) => {
+            db.run("DELETE FROM Dosen WHERE nip = ? ", [nip], (err) => {
                 if (err) {
                     reject(err)
                 } else {

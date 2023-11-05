@@ -39,8 +39,8 @@ export function showSearch(data) {
     Detail Mahasiswa dengan NIM : "${data.nim}"
     NIM          : ${data.nim}
     Nama         : ${data.namasiswa}
-    Kode Jurusan : ${data.kodejurusan}
-    Nama Jurusan : ${data.namajurusan}
+    Alamat       : ${data.alamat}
+    Jurusan      : ${data.idjurusan}
     `)
 }
 

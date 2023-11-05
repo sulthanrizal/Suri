@@ -1,6 +1,8 @@
 import { rl } from "../models/connect.js";
 import Mahasiswa from "../models/mahasiswa.js";
 import { showMahasiswa, showSearch, submenu } from "../view/MahasiswaView.js";
+import { showJurusan } from "../view/JurusanView.js";
+import Jurusan from "../models/jurusan.js";
 import { home } from "../c18.js";
 
 
@@ -34,8 +36,11 @@ export default class MahasiswaController {
     }
 
     static list() {
-        Mahasiswa.find(function (data) {
+        Mahasiswa.find().then((data) => {
             showMahasiswa(data)
+            MahasiswaController.menu()
+        }).catch(() => {
+            console.log(`Terjadi kesalahan pada data ,silahkan coba lagi`)
             MahasiswaController.menu()
         })
     }
@@ -46,28 +51,48 @@ export default class MahasiswaController {
                 showSearch(data)
                 MahasiswaController.menu()
             } catch (e) {
-                console.log(`Terjadi Kesalahan`)
+                console.log(`Mahasiswa dengan nim ${answer} ,tidak terdaftar`)
                 MahasiswaController.menu()
             }
         })
     }
 
     static add() {
-        console.log(`Lengkapi data dibawah ini : `)
-        Mahasiswa.find(function (data) {
-            showMahasiswa(data)
-            rl.question(`NIM Mahasiswa : `, async (nim) => {
-                rl.question(`Nama Mahasiswa : `, async (namadosen) => {
-                    if (await Mahasiswa.look(nim)) {
-                        console.log(`NIM Mahasiswa sudah terdaftar di database , silahkan coba lagi.`)
-                        MahasiswaController.menu()
-                    } else {
-                        Mahasiswa.create(nim, namadosen)
-                        console.log(`Dosen telah ditambahkan didatabase`)
-                        MahasiswaController.menu()
-                    }
+        console.log(`Lengkapi data di bawah ini :`)
+        Mahasiswa.find().then((data) => {
+            showMahasiswa(data);
+            rl.question(`NIM : `, (nim) => {
+                rl.question(`Nama : `, (namasiswa) => {
+                    rl.question(`Tanggal Lahir : `, (lahir) => {
+                        rl.question(`Alamat : `, (alamat) => {
+                            Jurusan.find(function (data) {
+                                showJurusan(data)
+                                rl.question(`Kode Jurusan : `, async (idjurusan) => {
+                                    if (await Mahasiswa.look(nim)) {
+                                        console.log(`NIM telah tersedia di database, silahkan coba lagi.`)
+                                        MahasiswaController.menu()
+                                    } else {
+                                        Mahasiswa.create(nim, namasiswa, lahir, alamat, idjurusan, function () {
+                                            console.log(`Mahasiswa telah ditambahkan`)
+                                            Mahasiswa.find().then((data) => {
+                                                showMahasiswa(data)
+                                                MahasiswaController.menu()
+                                            }).catch(() => {
+                                                console.log(`Terjadi kesalahan pada data ,silahkan coba lagi`)
+                                                MahasiswaController.menu()
+                                            })
+                                            MahasiswaController.menu()
+                                        });
+                                    }
+                                })
+                            })
+                        })
+                    })
                 })
             })
+        }).catch(() => {
+            console.log(`Terjadi kesalahan pada data, silahkan coba lagi`)
+            MahasiswaController.menu();
         })
     }
     static delete() {
@@ -76,10 +101,11 @@ export default class MahasiswaController {
             if (mahasiswa) {
                 Mahasiswa.delete(nim).then(() => {
                     console.log(`Data Mahasiswa ${nim} telah dihapus`)
+                    MahasiswaController.menu()
                 })
             } else {
                 console.log(`NIM yang anda masukan tidak tersedia , silahkan coba lagi`)
-                Mahasiswa.menu()
+                MahasiswaController.menu()
             }
         })
     }
