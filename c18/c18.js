@@ -1,7 +1,8 @@
 import DosenController from "./controllers/DosenController.js"
 import JurusanController from "./controllers/JurusanController.js"
 import MahasiswaController from "./controllers/MahasiswaController.js"
-// import MataKuliahController from "./controllers/MataKuliahController"
+import MataKuliahController from "./controllers/MataKuliahController.js"
+
 import { rl } from "./models/connect.js"
 
 
@@ -36,6 +37,9 @@ export function home() {
                 break;
             case "3":
                 DosenController.menu()
+                break;
+            case "4":
+                MataKuliahController.menu()
                 break;
             default:
                 console.log(`Nomor yang anda masukan tidak sesuai , silahkan coba lagi`)

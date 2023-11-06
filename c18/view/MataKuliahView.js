@@ -32,12 +32,13 @@ export function submenu() {
 
 
 
-export function search(data) {
+export function showSearch(data) {
     lines()
     console.log(`
-    Detail Mata Kuliah dengan code : "${data.kodejurusan}"
-    Kode Jurusan : ${data.kodejurusan}
-    Nama Jurusan : ${data.namajurusan}
+    Detail Mata Kuliah dengan kode : "${data.idmatkul}"
+    Kode Mata Kuliah : ${data.idmatkul}
+    Mata Kuliah      : ${data.matkul}
+    Jumlah SKS       : ${data.sks}
     `)
 }
 
