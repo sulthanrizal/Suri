@@ -52,7 +52,7 @@ export default class MahasiswaController {
                 MahasiswaController.menu()
             } catch (e) {
                 console.log(`Mahasiswa dengan nim ${answer} ,tidak terdaftar`)
-                MahasiswaController.search()
+                MahasiswaController.menu()
             }
         })
     }

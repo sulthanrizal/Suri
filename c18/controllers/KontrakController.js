@@ -47,7 +47,7 @@ export default class KontrakController {
                     KontrakController.menu()
                 } else {
                     console.log(`NIM yang anda masukan tidak tersedia ,silahkan coba lagi.`)
-                    KontrakController.search()
+                    KontrakController.menu()
                 }
             })
         })

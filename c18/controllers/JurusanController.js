@@ -46,7 +46,7 @@ export default class JurusanController {
                 JurusanController.menu()
             } catch (e) {
                 console.log("Terjadi kesalahan")
-                JurusanController.search()
+                JurusanController.menu()
             }
         })
     }
