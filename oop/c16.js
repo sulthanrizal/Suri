@@ -70,7 +70,7 @@ class CarFactory {
 
     }
     result() {
-        console.log("-- Hasil Product: --")
+        console.log(" hasil product: ")
         this.cars.forEach((car, index) => {
             console.log(`
 no.${index + 1}       
@@ -86,7 +86,7 @@ warranty : ${car.warranty} year
     }
 
     guaranteeSimulation(simulationYear) {
-        console.log("-- hasil simulasi garansi mobil pada tahun 2025: --")
+        console.log("hasil simulasi garansi mobil pada tahun 2025:")
         this.cars.forEach((car, index) => {
             console.log(`
 no.${index + 1}       
