@@ -37,8 +37,11 @@ export default class MataKuliah {
     static delete(idmatkul) {
         return new Promise(function (resolve, reject) {
             db.run(`DELETE FROM matakuliah WHERE idmatkul = ? `, [idmatkul], (err) => {
-                if (err) reject(err)
-                else resolve()
+                if (err) {
+                    reject(err)
+                } else {
+                    resolve()
+                }
             })
         })
     }

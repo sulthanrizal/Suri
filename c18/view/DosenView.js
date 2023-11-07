@@ -30,7 +30,7 @@ export function submenu() {
         `)
     lines()
 }
-submenu()
+
 
 
 export function showSearch(data) {

@@ -49,7 +49,7 @@ export default class MataKuliahController {
                 MataKuliahController.menu()
             } catch (e) {
                 console.log(`Terjadi Kesalahan`)
-                MataKuliahController.menu()
+                MataKuliahController.search()
             }
         })
     }

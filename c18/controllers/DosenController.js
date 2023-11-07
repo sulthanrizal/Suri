@@ -49,7 +49,7 @@ export default class DosenController {
                 DosenController.menu()
             } catch (e) {
                 console.log(`Terjadi kesalahan`)
-                DosenController.menu()
+                DosenController.search()
             }
         })
     }
