@@ -4,7 +4,7 @@ import KontrakController from "./controllers/KontrakController.js"
 import MahasiswaController from "./controllers/MahasiswaController.js"
 import MataKuliahController from "./controllers/MataKuliahController.js"
 
-import { rl } from "./models/connect.js"
+import { rl } from "./models/Connect.js"
 
 
 

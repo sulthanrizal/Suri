@@ -1,11 +1,11 @@
-import { rl } from "../models/connect.js";
-import Kontrak from "../models/kontrak.js";
-import Mahasiswa from "../models/mahasiswa.js";
-// import MataKuliah from "../models/matakuliah.js";
-// import { showDosen } from "../view/DosenView.js";
+import { rl } from "../models/Connect.js";
+import Kontrak from "../models/Kontrak.js";
+import Mahasiswa from "../models/Mahasiswa.js";
+
+
 import { showKontrak, submenu, tabelKontrak } from "../view/KontrakView.js";
 import { showMahasiswa } from "../view/MahasiswaView.js";
-// import { showMataKuliah } from "../view/MataKuliahView.js";
+
 
 
 

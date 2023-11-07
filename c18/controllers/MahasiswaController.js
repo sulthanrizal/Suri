@@ -1,8 +1,8 @@
-import { rl } from "../models/connect.js";
-import Mahasiswa from "../models/mahasiswa.js";
+import { rl } from "../models/Connect.js";
+import Mahasiswa from "../models/Mahasiswa.js";
 import { showMahasiswa, showSearch, submenu } from "../view/MahasiswaView.js";
 import { showJurusan } from "../view/JurusanView.js";
-import Jurusan from "../models/jurusan.js";
+import Jurusan from "../models/Jurusan.js";
 import { home } from "../c18.js";
 
 

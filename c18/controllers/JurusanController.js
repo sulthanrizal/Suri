@@ -1,5 +1,5 @@
-import Jurusan from "../models/jurusan.js";
-import { rl } from "../models/connect.js";
+import Jurusan from "../models/Jurusan.js";
+import { rl } from "../models/Connect.js";
 import { showJurusan, showSearch, submenu } from "../view/JurusanView.js";
 import { home } from "../c18.js";
 

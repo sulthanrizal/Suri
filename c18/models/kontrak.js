@@ -1,4 +1,4 @@
-import { db } from "./connect.js";
+import { db } from "./Connect.js";
 
 export default class Kontrak {
     constructor(obj) {

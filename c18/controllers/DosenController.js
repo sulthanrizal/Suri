@@ -1,5 +1,5 @@
 
-import { rl } from "../models/connect.js";
+import { rl } from "../models/Connect.js";
 import Dosen from "../models/dosen.js";
 import { showDosen, showSearch } from "../view/DosenView.js";
 import { submenu } from "../view/DosenView.js";
