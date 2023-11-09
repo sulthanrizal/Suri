@@ -1,10 +1,19 @@
 import DosenController from "./controllers/DosenController.js"
 import JurusanController from "./controllers/JurusanController.js"
 import KontrakController from "./controllers/KontrakController.js"
+import LoginController from "./controllers/LoginController.js"
 import MahasiswaController from "./controllers/MahasiswaController.js"
 import MataKuliahController from "./controllers/MataKuliahController.js"
 
 import { rl } from "./models/Connect.js"
+
+
+export function welcome() {
+    lines()
+    console.log(`Welcome to Universitas Pendidikan Indonesia \n Jl. Setiabudhi No.25 `)
+    lines()
+    LoginController.login()
+}
 
 
 
@@ -45,11 +54,13 @@ export function home() {
             case "5":
                 KontrakController.menu()
                 break;
+            case "6":
+                process.exit(0)
             default:
                 console.log(`Nomor yang anda masukan tidak sesuai , silahkan coba lagi`)
                 break;
+                home()
         }
     })
 }
-
-home()
+welcome()

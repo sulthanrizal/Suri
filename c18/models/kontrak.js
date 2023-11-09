@@ -61,7 +61,7 @@ export default class Kontrak {
 
     static findforAdd(nim, idmatkul) {
         return new Promise(function (resolve, reject) {
-            db.get(`SELECT * FROM kontrak WHERE nim = ? AND idmatkul = ? AND nip = ?`, [nim, idmatkul, nip], (err, data) => {
+            db.get(`SELECT * FROM kontrak WHERE nim = ? AND idmatkul = ?`, [nim, idmatkul], (err, data) => {
                 if (err) reject(err)
                 else resolve(data)
             })

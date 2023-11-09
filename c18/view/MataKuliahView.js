@@ -5,7 +5,7 @@ import Table from "cli-table"
 
 export function showMataKuliah(data = []) {
     var table = new Table({
-        head: ['Kode Mata Kuliah', "Mata Kuliah", "Jumlah SKS"],
+        head: ['Kode Matkul', "Nama Matkul", "SKS"],
         colWidths: [15, 40, 15]
     })
 

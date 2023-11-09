@@ -15,7 +15,7 @@ export function showJurusan(data = []) {
     console.log(table.toString())
 
 }
-showJurusan()
+
 
 
 
@@ -32,7 +32,7 @@ export function submenu() {
         `)
     lines()
 }
-submenu()
+
 
 
 
@@ -44,5 +44,5 @@ export function showSearch(data) {
     Nama Jurusan : ${data.namajurusan}
     `)
 }
-showSearch({})
+
 
