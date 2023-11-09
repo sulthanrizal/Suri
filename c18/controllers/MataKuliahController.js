@@ -1,6 +1,6 @@
 import { home } from "../c18.js";
 import { rl } from "../models/Connect.js";
-import MataKuliah from "../models/matakuliah.js";
+import MataKuliah from "../models/Matakuliah.js";
 import { showMataKuliah, showSearch, submenu } from "../view/MataKuliahView.js";
 
 

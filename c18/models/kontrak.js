@@ -1,15 +1,13 @@
-import { db } from "./Connect.js";
+import { db } from './Connect.js'
 
 export default class Kontrak {
     constructor(obj) {
-        this.nim = obj.nim
-        this.idmatkul = obj.idmatkul
-        this.nip = obj.nip
-        this.nilai = " "
-    }
+        this.nim = obj.nim; this.idmatkul = obj.idmatkul
+        this.nip = obj.nip; this.nilai = " "
+    };
 
     save(next) {
-        db.run(`INSERT INTO kontrak (nim , idmatkul , nip,nilai)VALUES(?,?,?,?)`, [this.nim, this.idmatkul, this.nip, this.nilai], (err) => {
+        db.run('INSERT INTO kontrak (nim, idmatkul, nip, nilai ) VALUES (?, ?, ?, ?)', [this.nim, this.idmatkul, this.nip, this.nilai], (err) => {
             if (err) console.log(err)
             else next()
         })
@@ -23,16 +21,18 @@ export default class Kontrak {
             })
         })
     }
+
     static look(nim) {
         return new Promise(function (resolve, reject) {
-            db.all(`SELECT * FROM kontrak WHERE nim = ? `, [nim], (err, data) => {
+            db.all('SELECT * FROM kontrak WHERE nim = ?', [nim], (err, data) => {
                 if (err) reject(err)
-                resolve(data)
+                else resolve(data)
             })
         })
     }
+
     static create(nim, idmatkul, nip, next) {
-        const databaru = new Kontrak({ nim, idmatkul, nip, next })
+        const databaru = new Kontrak({ nim: nim, idmatkul: idmatkul, nip: nip })
         databaru.save(function () {
             next()
         })
@@ -40,7 +40,7 @@ export default class Kontrak {
 
     static delete(idkontrak) {
         return new Promise(function (resolve, reject) {
-            db.run(`DELETE kontrak WHERE idkontrak = ?`, [idkontrak], (err) => {
+            db.run('DELETE FROM Kontrak WHERE idkontrak = ?', [idkontrak], (err) => {
                 if (err) {
                     reject(err)
                 } else {
@@ -59,9 +59,9 @@ export default class Kontrak {
         })
     }
 
-    static findofAdd(nim, idmatkul) {
-        new Promise(function (resolve, reject) {
-            db.get(`SELECT * FROM kontrak WHERE nim = ? AND idmatkul = ?`, [nim, idmatkul], (err, data) => {
+    static findforAdd(nim, idmatkul) {
+        return new Promise(function (resolve, reject) {
+            db.get(`SELECT * FROM kontrak WHERE nim = ? AND idmatkul = ? AND nip = ?`, [nim, idmatkul, nip], (err, data) => {
                 if (err) reject(err)
                 else resolve(data)
             })
@@ -70,7 +70,7 @@ export default class Kontrak {
 
     static findofUpdate(idkontrak, nim) {
         return new Promise(function (resolve, reject) {
-            db.get(`SELECT * FROM kontrak WHERE idkontrak = ? AND nim = ?`, [idkontrak, nim], (err, data) => {
+            db.get(`SELECT * FROM kontrak WHERE idkontrak = ? AND nim = ? `, [idkontrak, nim], (err, data) => {
                 if (err) reject(err)
                 else resolve(data)
             })

@@ -1,6 +1,6 @@
 
 import { rl } from "../models/Connect.js";
-import Dosen from "../models/dosen.js";
+import Dosen from "../models/Dosen.js";
 import { showDosen, showSearch } from "../view/DosenView.js";
 import { submenu } from "../view/DosenView.js";
 import { home } from "../c18.js";
