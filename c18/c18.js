@@ -16,6 +16,12 @@ export function welcome() {
 }
 
 
+export function exit() {
+    lines()
+    console.log(`Anda telah keluar`)
+    welcome()
+}
+
 
 export function lines() {
     let line = ""
@@ -55,11 +61,11 @@ export function home() {
                 KontrakController.menu()
                 break;
             case "6":
-                process.exit(0)
+                exit()
             default:
                 console.log(`Nomor yang anda masukan tidak sesuai , silahkan coba lagi`)
-                break;
                 home()
+                break;
         }
     })
 }
