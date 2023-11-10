@@ -75,7 +75,7 @@ export default class JurusanController {
             const jurusan = await Jurusan.look(kodejurusan)
             if (jurusan) {
                 Jurusan.delete(kodejurusan).then(() => {
-                    console.log(`Data Jurusan ${kodejurusan} telah dihapus`)
+                    console.log(`Data Jurusan ${kodejurusan} , telah dihapus`)
                     JurusanController.menu()
                 })
             } else {

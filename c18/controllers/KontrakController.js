@@ -9,6 +9,7 @@ import { showKontrak, tabelKontrak, tabelKontrakForUpdate } from "../view/Kontra
 import { submenu } from "../view/KontrakView.js";
 import { showMahasiswa } from "../view/MahasiswaView.js";
 import { showMataKuliah } from "../view/MataKuliahView.js";
+import { home } from "../c18.js";
 
 
 
@@ -38,6 +39,7 @@ export default class KontrakController {
                     break;
                 case "6":
                     home()
+                    break;
                 default:
                     console.log(`Nomor yang anda masukan tidak sesuai , silahkan coba lagi.`)
                     KontrakController.menu()

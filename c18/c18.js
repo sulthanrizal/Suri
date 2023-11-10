@@ -19,6 +19,7 @@ export function welcome() {
 export function exit() {
     lines()
     console.log(`Anda telah keluar`)
+
     welcome()
 }
 
@@ -62,6 +63,7 @@ export function home() {
                 break;
             case "6":
                 exit()
+                break;
             default:
                 console.log(`Nomor yang anda masukan tidak sesuai , silahkan coba lagi`)
                 home()
@@ -70,3 +72,4 @@ export function home() {
     })
 }
 welcome()
+
