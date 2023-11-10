@@ -24,12 +24,14 @@ export default class Kontrak {
 
     static look(nim) {
         return new Promise(function (resolve, reject) {
-            db.all('SELECT * FROM kontrak WHERE nim = ?', [nim], (err, data) => {
+            db.all('SELECT idkontrak, kontrak.nim AS nim, mahasiswa.namasiswa AS nama, matakuliah.matkul AS matkul, dosen.namadosen AS dosen, kontrak.nilai AS nilai FROM kontrak LEFT JOIN mahasiswa ON kontrak.nim=mahasiswa.nim LEFT JOIN matakuliah ON kontrak.idmatkul=matakuliah.idmatkul LEFT JOIN dosen ON kontrak.nip=dosen.nip  WHERE  kontrak.nim = ? ', [nim], (err, data) => {
                 if (err) reject(err)
                 else resolve(data)
             })
         })
     }
+
+
 
     static create(nim, idmatkul, nip, next) {
         const databaru = new Kontrak({ nim: nim, idmatkul: idmatkul, nip: nip })

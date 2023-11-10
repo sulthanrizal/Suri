@@ -31,12 +31,12 @@ export function submenu() {
 
 export function tabelKontrak(data = []) {
     var table = new Table({
-        head: ['ID', 'NIM', 'Kode Mata Kuliah', 'NIP', 'Nilai']
-        , colWidths: [5, 15, 15, 15, 10]
+        head: ['ID', 'NIM', 'Mata Kuliah', 'Dosen', 'Nilai']
+        , colWidths: [5, 15, 25, 15, 10]
     });
 
     data.forEach((item) => {
-        table.push([item.idkontrak, item.nim, item.idmatkul, item.nip, item.nilai ? item.nilai : " "])
+        table.push([item.idkontrak, item.nim, item.matkul, item.dosen, item.nilai ? item.nilai : " "])
     })
 
     console.log(table.toString());
@@ -44,12 +44,12 @@ export function tabelKontrak(data = []) {
 
 export function tabelKontrakForUpdate(data = []) {
     var table = new Table({
-        head: ['ID', 'Kode Mata Kuliah', 'Nilai']
-        , colWidths: [5, 15, 10]
+        head: ['ID', 'Mata Kuliah', 'Nilai']
+        , colWidths: [5, 25, 10]
     });
 
     data.forEach((item) => {
-        table.push([item.idkontrak, item.idmatkul, item.nilai ? item.nilai : " "])
+        table.push([item.idkontrak, item.matkul, item.nilai ? item.nilai : " "])
     })
 
     console.log(table.toString());
