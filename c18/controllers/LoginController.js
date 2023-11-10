@@ -14,13 +14,13 @@ export default class LoginController {
                             showLogin(x);
                             home()
                         } else {
-                            console.log(`password yang anda masukan salah , silahkan coba lagi`)
+                            console.log(`password yang anda masukan salah , silahkan coba lagi.`)
                             LoginController.login()
                         }
                     })
                 }
             }).catch((x) => {
-                console.log(`Username tidak tersedia, silahkan coba lagi`)
+                console.log(`Username tidak terdaftar`)
                 LoginController.login()
             })
         })
